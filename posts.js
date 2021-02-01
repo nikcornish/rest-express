@@ -1,4 +1,4 @@
-const posts = [
+module.exports = [
   {
     "id": 1,
     "title": "First Post"
@@ -12,5 +12,3 @@ const posts = [
     "title": "Third Post"
   }
 ];
-
-module.exports = posts;

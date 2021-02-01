@@ -16,7 +16,7 @@ app.get(ROUTES.POSTS, (req, res) => {
 // Get single post
 app.get(ROUTES.POST, (req, res) => {
   const post = posts.filter(post => post.id === parseInt(req.params.id));
-  if(post.length === 1 ) {
+  if(post.length === 1) {
     res.json(post);
   } else {
     res.status(400).json({ msg: `Post with id ${req.params.id} not found.`});
