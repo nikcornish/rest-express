@@ -1,14 +1,16 @@
+const uuid = require('uuid');
+
 module.exports = [
   {
-    "id": 1,
+    "id": 'p1',
     "title": "First Post"
   },
   {
-    "id": 2,
+    "id": 'p2',
     "title": "Second Post"
   },
   {
-    "id": 3,
+    "id": 'p3',
     "title": "Third Post"
   }
 ];
