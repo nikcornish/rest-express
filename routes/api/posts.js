@@ -13,8 +13,7 @@ const posts = require('../../Posts'),
 // Create a post
 router.post('/', (req, res) => {
   const newPost = {
-    // id: uuid.v4(),
-    id: req.body.id,
+    id: uuid.v4(),
     title: req.body.title
   };
   if(!newPost.title) {
@@ -24,14 +23,14 @@ router.post('/', (req, res) => {
   res.json(posts);
 });
 
-// TODO: there's no error prevention for overwriting objects above...
-
-
 
 
 ///////
 // READ
 ///////
+
+// Get all posts
+router.get('/', (req, res) => res.json(posts));
 
 // Get a single post via id
 router.get('/:id', (req, res) => {
@@ -40,12 +39,6 @@ router.get('/:id', (req, res) => {
     res.json(post) : 
     res.status(400).json({ msg: `Post with id ${req.params.id} not found.`})
 });
-
-// Get all posts
-router.get('/', (req, res) => res.json(posts));
-
-
-
 
 
 
@@ -65,6 +58,20 @@ router.put('/:id', (req, res) => {
     });
   } else {
     res.status(400).json({ msg: `Post with id ${req.params.id} not found.`});
+  }
+});
+
+
+
+/////////
+// DELETE
+/////////
+
+router.delete('/', (req, res) =>  {
+  const found = posts.find(post => post.id === req.body.id);
+  if(found) {
+    posts.splice(posts.findIndex(post => post.id === req.body.id), 1);
+    res.json(posts);
   }
 });
 
