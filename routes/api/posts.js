@@ -1,8 +1,11 @@
-const posts = require('../../Posts'),
+const posts = require('../../data/posts'),
       express = require('express'),
       router = express.Router(),
       uuid = require('uuid'),
-      utils = require('../../utils');
+      utils = require('../../utils/');
+
+
+
 
 /////////
 // CREATE
